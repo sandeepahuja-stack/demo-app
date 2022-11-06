@@ -10,14 +10,19 @@ import Avatar from "@mui/material/Avatar";
 import { StyledTableCell, StyledTableRow } from "./table.style";
 
 const UserCustomerDataTable = (props) => {
-  const { data: rows = [], lastRowRef = null } = props;
-  if (rows.length === 0) return null;
+  const { data: rows = [], lastRowRef = null, loading, error } = props;
 
   const keys = ["#No", "User Photo", "First Name", "Last Name", "Email"];
 
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }} aria-label="customer table">
+        {loading || error ? (
+          <caption>
+            {loading ? "loading" : null}{" "}
+            {error ? "Oops Something Went Wrong" : null}
+          </caption>
+        ) : null}
         <TableHead>
           <TableRow>
             {keys.map((label) => (
@@ -26,7 +31,7 @@ const UserCustomerDataTable = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => {
+          {rows?.map((row, index) => {
             const name = `${row.first_name} ${row.last_name}`;
             return (
               <StyledTableRow
@@ -52,4 +57,4 @@ const UserCustomerDataTable = (props) => {
     </TableContainer>
   );
 };
-export default UserCustomerDataTable;
+export default React.memo(UserCustomerDataTable);

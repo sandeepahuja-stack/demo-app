@@ -1,35 +1,16 @@
-import { useEffect, useState } from "react";
-import fetchUserList from "services/fetchUserList";
-import filteredCustomers from "utils/userlist";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCustomerListAsync } from "redux/reducers/customerList/customerList.thunk";
 
 export default function useCustomerList(pageNumber) {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [customerLists, setCustomerList] = useState([]);
-  const [hasMore, setHasMore] = useState(false);
+  const { customerList } = useSelector((state) => state);
+  const { err, isLoading, data = [], hasMore } = customerList;
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setLoading(true);
-    setError(false);
-
-    async function fetchData() {
-      await fetchUserList(pageNumber, {
-        onSuccess: (users) => {
-          setCustomerList((prevCustomers) => {
-            const filteredData = filteredCustomers(users.data);
-            return [...new Set([...prevCustomers, ...filteredData])];
-          });
-          setHasMore(users.total_pages > pageNumber);
-          setLoading(false);
-        },
-        onFailure: (e) => {
-          setError(true);
-        },
-      });
-    }
-    fetchData();
+    dispatch(fetchCustomerListAsync({ pageNumber }));
     return () => {};
-  }, [pageNumber]);
+  }, [pageNumber, dispatch]);
 
-  return { loading, error, customerLists, hasMore };
+  return { loading: isLoading, error: err, customerLists: data, hasMore };
 }
