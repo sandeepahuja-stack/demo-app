@@ -23,17 +23,16 @@ const HomePage = () => {
     [loading, hasMore]
   );
 
-  if (loading && customerLists.length === 0) {
-    return <>Loadder</>;
-  }
   return (
     <>
-      <Typography variant="h3" component="h2" my={2}>
+      <Typography variant="h5" component="h2" my={2}>
         Customers List
       </Typography>
       <UserCustomerDataTable
         data={customerLists}
         lastRowRef={lastCustomerElementRef}
+        loading={loading}
+        error={error}
       />
     </>
   );
