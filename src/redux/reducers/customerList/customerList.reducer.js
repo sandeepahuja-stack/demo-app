@@ -25,6 +25,11 @@ const customerListReducer = (state = initState, { type, payload }) => {
         err: payload.err,
       };
 
+    case actionTypes.CUSTOMER_LIST_EMPTY:
+      return {
+        ...initState,
+      };
+
     default:
       return state;
   }

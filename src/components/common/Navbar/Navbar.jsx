@@ -1,8 +1,8 @@
 import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 
 import { Link } from "react-router-dom";
-
-const Navbar = () => {
+import Logout from "components/Login&Logout/Logout";
+const Navbar = ({ updateProfile }) => {
   const style = {
     textDecoration: "none",
     color: "#fff",
@@ -28,7 +28,13 @@ const Navbar = () => {
           </Typography>
         </Box>
 
-        <Box display="flex" justifyContent="end"></Box>
+        <Box display="flex" justifyContent="end">
+          <Logout
+            onClick={() => {
+              updateProfile(null);
+            }}
+          />
+        </Box>
       </Toolbar>
     </AppBar>
   );

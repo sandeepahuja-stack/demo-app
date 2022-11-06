@@ -13,3 +13,7 @@ export const customerListSuccess = (payload) => ({
   type: actionTypes.CUSTOMER_LIST_SUCCESS,
   payload,
 });
+
+export const customerListEmpty = () => ({
+  type: actionTypes.CUSTOMER_LIST_EMPTY,
+});

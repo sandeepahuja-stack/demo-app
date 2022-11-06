@@ -2,6 +2,7 @@ import React, { useState, useRef, useCallback } from "react";
 import UserCustomerDataTable from "../UserCustomerDataTable";
 import { Typography } from "@mui/material";
 import useCustomerList from "hooks/useCustomerList";
+
 const HomePage = () => {
   const [pageNumber, setPageNumber] = useState(1);
 
