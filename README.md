@@ -7,4 +7,9 @@ npm run lint
 
 // lint fix 
 npm run lint:fix
-<!-- dummy -->
+
+
+
+using material ui for theming 
+
+Common Layout for Application (src/components/common/Layout)
