@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import Layout from "components/common/Layout";
+import { gapi } from "gapi-script";
+import { CLIENT_ID } from "components/Login&Logout/Login";
 
 const Home = React.lazy(() =>
   import(
@@ -10,6 +12,16 @@ const Home = React.lazy(() =>
 );
 
 function App() {
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: CLIENT_ID,
+        scope: "",
+      });
+    }
+    gapi.load("client:auth2", start);
+  }, []);
+
   return (
     <Layout>
       <Routes>
