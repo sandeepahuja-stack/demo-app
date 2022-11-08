@@ -20,10 +20,10 @@ const Login = () => {
     <Box textAlign={"center"}>
       <Box display="flex" alignItems="baseline" justifyContent="center" my={5}>
         <Typography variant="h1" component="h2" fontWeight="bold">
-          Z
+          I
         </Typography>
         <Typography variant="h3" component="h2" fontWeight="bold">
-          urich
+          nsure
         </Typography>
       </Box>
       <GoogleLogin

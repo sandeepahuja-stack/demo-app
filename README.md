@@ -1,4 +1,4 @@
-# User List with Google Auth
+# Insure Dummy Project
 
 ## Get Started
 
@@ -27,6 +27,7 @@ All pages are located in `pages` folder
 ## Structure of an app
 ```
 src/
+|-- constants/ => apiendpoints and many more
 |-- assets/
 |-- components/ 
 		|-- common => resuable components
@@ -76,6 +77,10 @@ src/
 
 #### Additional Search functionality added to search in the filtered user
 <img width="1792" alt="additional functionality of search" src="https://user-images.githubusercontent.com/62178420/200520259-17e5f734-bba6-4940-9307-b3a263f6a768.png">
+
+```
+  Note: We can use debonce when we call api at the time of search
+```
 
 
 ## Video
