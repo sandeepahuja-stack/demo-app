@@ -1,4 +1,4 @@
-# Insure Dummy Project
+# Dummy Project
 
 ## Get Started
 
