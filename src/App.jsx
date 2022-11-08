@@ -10,6 +10,13 @@ const Home = React.lazy(() =>
   )
 );
 
+const NoPageFound = React.lazy(() =>
+  import(
+    /* webpackChunkName: "NoPageFoundPage" */
+    "./pages/404"
+  )
+);
+
 function App() {
   useEffect(() => {
     function start() {
@@ -32,7 +39,14 @@ function App() {
             </Suspense>
           }
         />
-        <Route path="*" element={<>HEre error page</>} />
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={<div>Loading home</div>}>
+              <NoPageFound />
+            </Suspense>
+          }
+        />
       </Routes>
     </Layout>
   );
