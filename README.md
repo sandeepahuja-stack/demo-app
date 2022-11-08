@@ -62,5 +62,20 @@ src/
 
 
 
+## ScreenShots of application
+#### User not loggedIn
+<img width="1792" alt="usernotloggedin" src="https://user-images.githubusercontent.com/62178420/200519895-8cb79a78-5490-49de-ae9e-b8ec56ce76ee.png">
+
+#### After logged in with infinite page scroll for pagination
+<img width="1792" alt="infinite scroll for pagination" src="https://user-images.githubusercontent.com/62178420/200520093-68d82304-0629-4a6d-920a-e831b0ee551f.png">
+
+<img width="1792" alt="afterlogin homepage" src="https://user-images.githubusercontent.com/62178420/200520058-8b4590b0-52b9-452f-b85f-6d733df007a5.png">
+
+#### 404 page Not Found
+<img width="1792" alt="No page found" src="https://user-images.githubusercontent.com/62178420/200520400-b72ec9e0-d0d6-4169-a84f-59b8fefd51c0.png">
+
+#### Additional Search functionality added to search in the filtered user
+<img width="1792" alt="additional functionality of search" src="https://user-images.githubusercontent.com/62178420/200520259-17e5f734-bba6-4940-9307-b3a263f6a768.png">
+
 
 
