@@ -7,6 +7,7 @@ const customerListInitState = {
   total: 0,
   total_pages: 0,
   hasMore: false,
+  filteredData: [],
 };
 
 export default customerListInitState;

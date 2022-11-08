@@ -2,11 +2,15 @@ import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 
 import { Link } from "react-router-dom";
 import Logout from "components/Login&Logout/Logout";
-const Navbar = ({ updateProfile }) => {
+import { useSelector } from "react-redux";
+
+const Navbar = () => {
   const style = {
     textDecoration: "none",
     color: "#fff",
   };
+
+  const { name = "" } = useSelector((state) => state.user);
 
   return (
     <AppBar position="static" variant="elevation">
@@ -29,11 +33,8 @@ const Navbar = ({ updateProfile }) => {
         </Box>
 
         <Box display="flex" justifyContent="end">
-          <Logout
-            onClick={() => {
-              updateProfile(null);
-            }}
-          />
+          {name}
+          {!!name && <Logout />}
         </Box>
       </Toolbar>
     </AppBar>

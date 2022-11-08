@@ -23,6 +23,7 @@ const UserCustomerDataTable = (props) => {
             {error ? "Oops Something Went Wrong" : null}
           </caption>
         ) : null}
+        {rows.length === 0 ? <caption>No Records found</caption> : null}
         <TableHead>
           <TableRow>
             {keys.map((label) => (
