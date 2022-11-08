@@ -36,7 +36,7 @@ const Navbar = () => {
         <Box component="nav">
           <Typography
             variant="h6"
-            component="div"
+            component="a"
             sx={{ flexGrow: 1 }}
             role="menu"
           >

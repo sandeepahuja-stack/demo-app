@@ -16,14 +16,19 @@ const UserCustomerDataTable = (props) => {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 500 }} aria-label="customer table">
+      <Table
+        sx={{ minWidth: 500, whiteSpace: "nowrap" }}
+        aria-label="customer table"
+      >
         {loading || error ? (
           <caption>
             {loading ? "loading" : null}{" "}
             {error ? "Oops Something Went Wrong" : null}
           </caption>
         ) : null}
-        {rows.length === 0 ? <caption>No Records found</caption> : null}
+        {rows.length === 0 && !loading ? (
+          <caption>No Records found</caption>
+        ) : null}
         <TableHead>
           <TableRow>
             {keys.map((label) => (
