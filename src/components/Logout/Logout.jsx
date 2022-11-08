@@ -1,11 +1,11 @@
 import React from "react";
 import { GoogleLogout } from "react-google-login";
-import { CLIENT_ID } from "./Login";
 import { customerListEmpty } from "redux/actions/customerList.actions";
 import { userLoggedOut } from "redux/actions/user.actions";
 import { useDispatch } from "react-redux";
+import { Button } from "@mui/material";
 
-const Logout = () => {
+const Logout = ({ onClose }) => {
   const dispatch = useDispatch();
   const onSuccess = () => {
     dispatch(userLoggedOut());
@@ -16,13 +16,23 @@ const Logout = () => {
 
   return (
     <>
-      <div id="signOutButton">
+      <span id="signOutButton">
         <GoogleLogout
-          clientId={CLIENT_ID}
-          buttonText="Logout"
+          render={(props) => (
+            <Button
+              onClick={() => {
+                onClose();
+                props.onClick();
+              }}
+            >
+              Logout
+            </Button>
+          )}
+          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           onLogoutSuccess={onSuccess}
+          icon={false}
         />
-      </div>
+      </span>
     </>
   );
 };

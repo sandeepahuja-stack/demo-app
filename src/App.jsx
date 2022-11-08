@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import React, { Suspense, useEffect } from "react";
 import Layout from "components/common/Layout";
 import { gapi } from "gapi-script";
-import { CLIENT_ID } from "components/Login&Logout/Login";
 
 const Home = React.lazy(() =>
   import(
@@ -15,7 +14,7 @@ function App() {
   useEffect(() => {
     function start() {
       gapi.client.init({
-        clientId: CLIENT_ID,
+        clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
         scope: "",
       });
     }
@@ -33,6 +32,7 @@ function App() {
             </Suspense>
           }
         />
+        <Route path="*" element={<>HEre error page</>} />
       </Routes>
     </Layout>
   );

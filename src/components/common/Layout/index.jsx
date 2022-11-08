@@ -2,7 +2,7 @@ import React from "react";
 import { Container, createTheme, ThemeProvider } from "@mui/material";
 import ErrorBoundary from "../ErrorBoundary";
 import Navbar from "../Navbar";
-import Login from "components/Login&Logout";
+import Login from "components/Login";
 import { useSelector } from "react-redux";
 function Layout(props) {
   const theme = createTheme();
