@@ -9,6 +9,7 @@ const devTools =
     ? window.__REDUX_DEVTOOLS_EXTENSION__ &&
       window.__REDUX_DEVTOOLS_EXTENSION__()
     : (a) => a;
+// here we can write our own custom middleware for authorization purpose
 
 const configureStore = () => {
   const middlewares = [thunk];
