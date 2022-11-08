@@ -9,8 +9,8 @@ import { userLoggedIn } from "redux/actions/user.actions";
 const Login = () => {
   const dispatch = useDispatch();
   const onSuccess = (res) => {
-    console.log("Login Success user", res.profileObj);
-    dispatch(userLoggedIn(res.profileObj));
+    console.log("Login Success user", res.profileObj, res);
+    dispatch(userLoggedIn({ accessToken: res.accessToken, ...res.profileObj }));
   };
 
   const onFailure = (res) => {
