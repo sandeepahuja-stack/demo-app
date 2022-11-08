@@ -7,6 +7,7 @@ const userInitState = {
   googleId: "",
   imageUrl: "",
   name: "",
+  accessToken: "",
 };
 
 export default userInitState;

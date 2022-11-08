@@ -1,10 +1,12 @@
 import axios from "axios";
+import store from "redux/config/configureStore";
 const apiClient = ({ url, headers }) => {
-  let token = "";
+  const { user } = store.getState();
+  const { accessToken = "" } = user;
   let requestHeader = { ...headers };
 
-  if (token) {
-    requestHeader["Authorization"] = `Bearer ${token}`;
+  if (accessToken) {
+    requestHeader["Authorization"] = `Bearer ${accessToken}`;
   }
 
   const axiosInstance = axios.create({
