@@ -12,18 +12,20 @@ export const fetchCustomerListAsync =
   ({ pageNumber }) =>
   (dispatch) => {
     dispatch(customerListStart());
-
     async function fetchData() {
       await fetchUserList(pageNumber, {
         onSuccess: (users) => {
           const { customerList } = store.getState();
 
           const { data, ...rest } = users;
-          const filteredData = filteredCustomers(users.data);
-          const prevCustomers = customerList?.data || [];
+          const filteredTempData = filteredCustomers(users.data);
+          const prevCustomers = customerList?.filteredData || [];
           dispatch(
             customerListSuccess({
-              data: [...new Set([...prevCustomers, ...filteredData])],
+              filteredData: [
+                ...new Set([...prevCustomers, ...filteredTempData]),
+              ],
+              data: [...new Set([...customerList.data, ...users.data])],
               hasMore: users.total_pages > pageNumber,
               ...rest,
             })

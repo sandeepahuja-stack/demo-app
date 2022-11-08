@@ -1,23 +1,27 @@
+import React from "react";
 import { Container, createTheme, ThemeProvider } from "@mui/material";
-import Login from "components/Login&Logout";
-import React, { useState } from "react";
 import ErrorBoundary from "../ErrorBoundary";
 import Navbar from "../Navbar";
-
+import Login from "components/Login&Logout";
+import { useSelector } from "react-redux";
 function Layout(props) {
   const theme = createTheme();
-  const [profile, updateProfile] = useState(null);
-
-  if (!profile) {
-    return <Login updateProfile={updateProfile} />;
-  }
+  const { name = "" } = useSelector((state) => state.user);
 
   return (
     <ThemeProvider theme={theme}>
       {/* Navbar section to be created */}
-      <Navbar updateProfile={updateProfile} />
+      <Navbar />
       <ErrorBoundary>
-        <Container>{props.children}</Container>
+        <Container>
+          {name === "" ? (
+            <>
+              <Login />
+            </>
+          ) : (
+            props.children
+          )}
+        </Container>
       </ErrorBoundary>
       {/* 
       Footer section to be created

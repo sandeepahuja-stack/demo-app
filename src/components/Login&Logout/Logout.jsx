@@ -2,13 +2,13 @@ import React from "react";
 import { GoogleLogout } from "react-google-login";
 import { CLIENT_ID } from "./Login";
 import { customerListEmpty } from "redux/actions/customerList.actions";
+import { userLoggedOut } from "redux/actions/user.actions";
 import { useDispatch } from "react-redux";
 
-const Logout = ({ onClick }) => {
+const Logout = () => {
   const dispatch = useDispatch();
   const onSuccess = () => {
-    onClick();
-
+    dispatch(userLoggedOut());
     dispatch(customerListEmpty());
 
     console.log("Logout Success user");

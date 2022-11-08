@@ -4,13 +4,17 @@ import { fetchCustomerListAsync } from "redux/reducers/customerList/customerList
 
 export default function useCustomerList(pageNumber) {
   const { customerList } = useSelector((state) => state);
-  const { err, isLoading, data = [], hasMore } = customerList;
+  const { err, isLoading, hasMore, filteredData = [] } = customerList;
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(fetchCustomerListAsync({ pageNumber }));
     return () => {};
   }, [pageNumber, dispatch]);
 
-  return { loading: isLoading, error: err, customerLists: data, hasMore };
+  return {
+    loading: isLoading,
+    error: err,
+    customerLists: filteredData,
+    hasMore,
+  };
 }
