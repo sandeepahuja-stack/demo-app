@@ -5,8 +5,7 @@ import { Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 
 import { userLoggedIn } from "redux/actions/user.actions";
-export const CLIENT_ID =
-  "817821046927-575ifa4l722g17vtf53vj4idovnndubr.apps.googleusercontent.com";
+
 const Login = () => {
   const dispatch = useDispatch();
   const onSuccess = (res) => {
@@ -28,7 +27,7 @@ const Login = () => {
         </Typography>
       </Box>
       <GoogleLogin
-        clientId={CLIENT_ID}
+        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
         buttonText="Sign in with Google"
         onSuccess={onSuccess}
         onFailure={onFailure}
