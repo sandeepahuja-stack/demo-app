@@ -1,7 +1,8 @@
+import { CUSTOMER_LIST_API } from "constants/customer.constant";
 import apiClient from "services/apiClient";
 
 const fetchUserList = async (pageNo = 1, { onSuccess, onFailure }) => {
-  apiClient({ url: `${process.env.REACT_APP_USER_DATA_API}` })
+  apiClient({ url: CUSTOMER_LIST_API })
     .get(`?page=${pageNo}`)
     .then(({ data }) => {
       if (onSuccess) {

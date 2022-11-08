@@ -23,7 +23,7 @@ const Footer = () => {
       <Box>
         <Typography variant="h3" component="a" sx={{ flexGrow: 1 }} role="menu">
           <Link to="/" role="menu-link" style={style}>
-            Zurich
+            Insure
           </Link>
         </Typography>
       </Box>

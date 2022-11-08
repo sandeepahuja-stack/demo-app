@@ -41,7 +41,7 @@ const Navbar = () => {
             role="menu"
           >
             <Link to="/" role="menu-link" style={style}>
-              Zurich
+              Insure
             </Link>
           </Typography>
         </Box>
